@@ -2,7 +2,7 @@ import random as r
 import os
 
 import funcs
-
+  
 steps = 0
 Coins = 1
 Hp = 3
@@ -348,27 +348,27 @@ while Hp > 0 and steps < 201:
         if magaz == '1':
             if Coins < 2:
                 print('торговец плюнул тебе в лицо, у тебя недостаточно монет')
-        elif Coins > 1:
-            if magaz == '1':
-                Coins -= 2
-                Hp += 2
-        if magaz == '2':
+            elif Coins > 1:
+                if magaz == '1':
+                    Coins -= 2
+                    Hp += 2
+        elif magaz == '2':
             if Coins < 1:
                 print('торговец плюнул тебе в лицо, у тебя недостаточно монет')
-        elif Coins > 0:
-            if magaz == '2':
-                Coins -= 1
-                Mp += 1
-        if magaz == '3':
+            elif Coins > 0:
+                if magaz == '2':
+                    Coins -= 1
+                    Mp += 1
+        elif magaz == '3':
             if Coins < 3:
                 print('торговец плюнул тебе в лицо, у тебя недостаточно монет')
-        elif Coins > 2:
-            if magaz == '3':
-                Coins -= 3
-                Atk += 5
-            else:
-                print('-------------------')
-                print('Ты прошел мимо торговца')
+            elif Coins > 2:
+                if magaz == '3':
+                    Coins -= 3
+                    Atk += 5
+        else:
+            print('-------------------')
+            print('Ты прошел мимо торговца')
         print('У тебя в инвентаре', 'Монет-', Coins, 'Силы-', Atk, 'Здоровья-',
               Hp, 'Маны-', Mp)
     elif situation == 6:
@@ -530,6 +530,9 @@ while Hp > 0 and steps < 201:
         funcs.save(Hp,Coins,Atk,Mp,steps)
     elif command == 'load':
         Hp,Coins,Atk,Mp,steps = funcs.load(Hp,Coins,Atk,Mp,steps)
+
+    if command == 'exit':
+        funcs.exit_f(Hp,Coins,Atk,Mp,steps)
     os.system(platform_clear)
 if Hp <= 0:
     print('▒▒▒▒▒▒▒▒▒▒▒▄▄▄▄░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒')

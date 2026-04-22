@@ -1,5 +1,6 @@
 import os
 from pathlib import *
+import sys
 def choose_platform(pl):
     platform = input('\nНа какой платформе ты играешь?'
                      '\nLinux - L'
@@ -22,18 +23,24 @@ def type_cheats(cheats,hp,coins,atk,mp,steps):
     if cheats == '2208':
         hp += 9999
         print('Ты активировал чит на здоровье')
+        input()
     elif cheats == '2008':
         coins += 9999
         print('Ты активировал чит на монеты')
+        input()
     elif cheats == '0901':
         atk += 9999
         print('Ты активировал чит на атаку')
+        input()
     elif cheats == '1707':
         mp += 9999
         print('Ты активировал чит на ману')
+        input()
     elif cheats == '2828':
         steps += 200
         print('Ты активировал чит на шаги')
+        input()
+
     elif cheats == '2106':
         hp += 9999
         coins += 9999
@@ -89,3 +96,15 @@ def load(hp,atk,mp,coins,steps):
     hp,atk,mp,coins,steps = map(int,f)
 
     return hp,atk,mp,coins,steps
+
+def exit_f(hp,coins,atk,mp,steps):
+
+    exit_inp = str(input("\nХотите сохраниться?  \033[33m[Y/n]\033[0m"))
+    exit_inp = exit_inp.lower()
+
+    if exit_inp == 'y' or '':
+        save(hp,coins,atk,mp,steps)
+        sys.exit()
+    else:
+        sys.exit()
+
