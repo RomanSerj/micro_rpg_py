@@ -350,8 +350,7 @@ def main_game(platform_clear,Hp,Atk,Mp,Coins,steps):
                     print(
                         'священник дал тебе своим посохом по лбу, за его потраченное время, у тебя недостаточно маны'
                     )
-            elif Mp > 19:
-                if altar == '1':
+                elif Mp > 19:
                     Mp -= 20
                     steps += 50
             if altar == '2':
@@ -359,8 +358,7 @@ def main_game(platform_clear,Hp,Atk,Mp,Coins,steps):
                     print(
                         'священник дал тебе своим посохом по лбу, за его потраченное время, у тебя недостаточно монет'
                     )
-            elif Mp > 24:
-                if altar == '2':
+                elif Mp >=25:
                     Mp -= 25
                     Atk += 10
             if altar == '3':
@@ -368,8 +366,7 @@ def main_game(platform_clear,Hp,Atk,Mp,Coins,steps):
                     print(
                         'священник дал тебе своим посохом по лбу, за его потраченное время, у тебя недостаточно монет'
                     )
-            elif Mp > 29:
-                if altar == '3':
+                elif Mp >=30:
                     Mp -= 30
                     Hp += 15
                 else:
@@ -470,6 +467,7 @@ def main_game(platform_clear,Hp,Atk,Mp,Coins,steps):
         print('-------------------')
         print('У тебя в инвентаре', 'Монет-', Coins, 'Силы-', Atk, 'Здоровья-', Hp,
               'Маны-', Mp)
+        input()
 
 def choose_platform(pl):
     platform = input('\nНа какой платформе ты играешь?'
@@ -556,7 +554,9 @@ def load(hp,atk,mp,coins,steps):
         count +=1
     print(f'\nДоступно {count} сохранений')
     for i,save in enumerate(saves,start=1):
-        print(f'{i})',save)
+        save_file = open(f'{folder}/{save}','r').readlines()
+        hp_f,atk_f,mp_f,coins_f,steps_f = map(int,save_file)
+        print(f'{i}) {save}: {hp_f} Здоровья, {atk_f} Атаки, {mp_f} Маны, {coins_f} Монет, {steps_f} Шагов')
 
     choose_load = (input('\nВыберите сохранение написав соответствующий ему номер:'
                             '\n'))
