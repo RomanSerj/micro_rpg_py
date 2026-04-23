@@ -2,8 +2,73 @@ import os
 from pathlib import *
 import sys
 import random as r
-def start():
-    pass
+
+import colors
+
+
+def start(platform_clear,Hp, Atk, Mp, Coins, steps):
+    os.system(platform_clear)
+
+    print('\n                       ████████████████████████████████████████████████████'
+          '\n                       █────██─█─█───█───█───█─███─███─█────█─██─█───█────█'
+          '\n                       █─██─██─█─█─███─████─██─███──█──█─██─█──█─██─██─██─█'
+          '\n                       █─█──██─█─█───█───██─██─███─█─█─█────█─█──██─██────█'
+          '\n                       █─██─██─█─█─█████─██─██─███─███─█─██─█─██─██─██─██─█'
+          '\n                       █─────█───█───█───██─██───█─███─█─██─█─██─█───█─██─█'
+          '\n                       █████─██████████████████████████████████████████████')
+    print('                         ▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒')
+    print('                         ▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒')
+    print('                         ▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▄░░▒▒▒▒▒')
+    print('                         ▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██▌░░▒▒▒▒')
+    print('                         ▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░▄▄███▀░░░░▒▒▒')
+    print('                         ▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░█████░▄█░░░░▒▒')
+    print('                         ▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░▄████████▀░░░░▒▒')
+    print('                         ▒▒░░░░░░░░░░░░░░░░░░░░░░░░▄█████████░░░░░░░▒')
+    print('                         ▒░░░░░░░░░░░░░░░░░░░░░░░░░░▄███████▌░░░░░░░▒')
+    print('                         ▒░░░░░░░░░░░░░░░░░░░░░░░░▄█████████░░░░░░░░▒')
+    print('                         ▒░░░░░░░░░░░░░░░░░░░░░▄███████████▌░░░░░░░░▒')
+    print('                         ▒░░░░░░░░░░░░░░░▄▄▄▄██████████████▌░░░░░░░░▒')
+    print('                         ▒░░░░░░░░░░░▄▄███████████████████▌░░░░░░░░░▒')
+    print('                         ▒░░░░░░░░░▄██████████████████████▌░░░░░░░░░▒')
+    print('                         ▒░░░░░░░░████████████████████████░░░░░░░░░░▒')
+    print('                         ▒█░░░░░▐██████████▌░▀▀███████████░░░░░░░░░░▒')
+    print('                         ▐██░░░▄██████████▌░░░░░░░░░▀██▐█▌░░░░░░░░░▒▒')
+    print('                         ▒██████░█████████░░░░░░░░░░░▐█▐█▌░░░░░░░░░▒▒')
+    print('                         ▒▒▀▀▀▀░░░██████▀░░░░░░░░░░░░▐█▐█▌░░░░░░░░▒▒▒')
+    print('                         ▒▒▒▒▒░░░░▐█████▌░░░░░░░░░░░░▐█▐█▌░░░░░░░▒▒▒▒')
+    print('                         ▒▒▒▒▒▒░░░░███▀██░░░░░░░░░░░░░█░█▌░░░░░░▒▒▒▒▒')
+    print('                         ▒▒▒▒▒▒▒▒░▐██░░░██░░░░░░░░▄▄████████▄▒▒▒▒▒▒▒▒')
+    print('                         ▒▒▒▒▒▒▒▒▒██▌░░░░█▄░░░░░░▄███████████████████')
+    print('                         ▒▒▒▒▒▒▒▒▒▐██▒▒░░░██▄▄███████████████████████')
+    print('                         ▒▒▒▒▒▒▒▒▒▒▐██▒▒▄████████████████████████████')
+    print('                         ▒▒▒▒▒▒▒▒▒▒▄▄████████████████████████████████')
+    print(
+        'Тебе нужно пройти через волшебный лес до Зачарованного Города для этого потребуется сделать 200 шагов, каждый бросок кубика это либо действие либо один шаг.'
+        '\nНа твоем пути может встретится что угодно, монстры, бродячие торговцы, полезные предметы или могут попасться монеты по 1 единице,на них ты можешь купить жизни,броню для защиты и оружие для увеличения урона.'
+        '\nЕсли вы забыли команды - введите help')
+    print('\n        Приятной игры!      '
+          '\n-------------------'
+          '\nТы в начале пути и у тебя есть :'
+          f'\n{colors.Yellow}{colors.Bold}{Coins} {colors.Reset} Монет'
+          f'\n{colors.Green}{colors.Bold}{Hp} {colors.Reset}Жизни'
+          f'\n{colors.Red}{colors.Bold}{Atk} {colors.Reset} Сила урона'
+          f'\n{colors.Cyan}{colors.Bold}{Mp} {colors.Reset} Маны'
+          '\n  -------------------')
+
+    command = input(f'Нажми \033[5;33mEnter{colors.Reset} чтобы бросить кубик'
+                    '\n')
+    if command == 'save':
+        save(Hp, Coins, Atk, Mp, steps)
+    elif command == 'load':
+        Hp, Coins, Atk, Mp, steps = load(Hp, Coins, Atk, Mp, steps)
+    elif command == 'exit':
+        exit_f(Hp, Coins, Atk, Mp, steps)
+    elif command == 'help':
+        help()
+
+    main_game(platform_clear, Hp, Atk, Mp, Coins, steps)
+
+
 def main_game(platform_clear,Hp,Atk,Mp,Coins,steps):
     while Hp > 0 and steps < 201:
         steps += 1
@@ -13,7 +78,7 @@ def main_game(platform_clear,Hp,Atk,Mp,Coins,steps):
         print('-------------------'
               )
         print(f'Ты прошел | {steps} | шагов'
-              f'                                инвентарь: |\033[1;32mЗдоровье: {Hp} \033[0m |\033[1;31mАтака: {Atk} \033[0m |\033[1;36mМана: {Mp} \033[0m |\033[1;33mМонеты: {Coins}\033[0m |')
+              f'                                инвентарь: |{colors.Green}{colors.Bold}Здоровье: {Hp} {colors.Reset} |{colors.Red}{colors.Bold}Атака: {Atk} {colors.Reset} |{colors.Cyan}{colors.Bold}Мана: {Mp} {colors.Reset} |{colors.Yellow}{colors.Bold}Монеты: {Coins}{colors.Reset} |')
 
         if steps == 99:
             print('                       ██████████████████████████')
@@ -231,28 +296,28 @@ def main_game(platform_clear,Hp,Atk,Mp,Coins,steps):
                     Hp, 'здоровья')
 
         elif situation == 2:
-            print('\033[33mВы нашли 1 золотую монету\033[0m')
+            print(f'{colors.Yellow}Вы нашли 1 золотую монету{colors.Reset}')
             Coins += 1
             print('Всего у тебя', Coins, 'монет')
 
         elif situation == 3:
-            print('\033[36mВы нашли малый бутылёчек с маной(+1 к Мане)\033[0m')
+            print(f'{colors.Cyan}Вы нашли малый бутылёчек с маной(+1 к Мане){colors.Reset}')
             Mp += 1
             print('Всего у тебя', Mp, 'маны')
 
         elif situation == 4:
-            print('\033[32mВы нашли бинт с зелёнкой(+1 к Здоровью)\033[0m')
+            print(f'{colors.Green}Вы нашли бинт с зелёнкой(+1 к Здоровью){colors.Reset}')
             Hp += 1
             print('Всего у тебя', Hp, 'здоровья')
 
         elif situation == 5:
-            print('\033[31mВы нашли оружие, чуть лучше вашего(+1 к Атаке)\033[0m ')
+            print(f'{colors.Red}Вы нашли оружие, чуть лучше вашего(+1 к Атаке){colors.Reset} ')
             Atk += 1
             print('Всего у тебя', Atk, 'силы урона')
 
         elif situation == 0:
             print('-------------------')
-            print('\033[5mТы встретил бродячего торговца\033[0m')
+            print(f'{colors.Blinking}Ты встретил бродячего торговца{colors.Reset}')
             print('И можешь купить себе:')
             print('Нажми 1 если хочешь купить ауру к жизни +2Hp за 2 монет')
             print('Нажми 2 если хочешь купить амулет к мане +1Mp за 1 монету')
@@ -312,7 +377,7 @@ def main_game(platform_clear,Hp,Atk,Mp,Coins,steps):
             print('       ░░░░░░░░░░▀█▄░▀████████▀▄█▀░░░░░░░░░░')
             print('       ░░░░░░░░░░░░▀█▄░▀░▀░▀░▄█▀░░░░░░░░░░░░')
             print('       ░░░░░░░░░░░░░░▀▀▄▄▄▄▄▀▀░░░░░░░░░░░░░░')
-            print('\033[5;35mТы встретил гнома-шутника который любит сыграть на удачу\033[0m')
+            print(f'{colors.Purple}{colors.Blinking}Ты встретил гнома-шутника который любит сыграть на удачу{colors.Reset}')
             print('И можешь попробовать за 10 монет')
             print('Угадать число загаданное и получить 30 монет ')
             print('Нажми "Y" если хочешь угадать число ')
@@ -337,7 +402,7 @@ def main_game(platform_clear,Hp,Atk,Mp,Coins,steps):
             print('У тебя в инвентаре', 'Монет-', Coins)
         elif situation == 8:
             print('-------------------')
-            print('\033[5;36mТы встретил заброшенный алтарь\033[0m')
+            print(f'{colors.Cyan}{colors.Blinking}Ты встретил заброшенный алтарь{colors.Reset}')
             print('И можешь попросить священника дать тебе:')
             print('Нажми 1 если хочешь взять телепорт +50 шагов за 20 маны')
             print('Нажми 2 если хочешь взять посох + 10Atk за 25 маны')
@@ -459,7 +524,8 @@ def main_game(platform_clear,Hp,Atk,Mp,Coins,steps):
         print('████████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒')
         print('Ты погиб')
         input()
-        restart()
+        restart(platform_clear,Hp, Atk, Mp, Coins, steps)
+
     elif steps == 201:
         print('!!!!!!!!!!!!!!!!Ты победил!!!!!!!!!!!!!!!!!!')
         print('!!!!!ты дошел до до Зачарованного Города!!!!!!')
@@ -570,7 +636,7 @@ def load(hp,atk,mp,coins,steps):
 
 def exit_f(hp,coins,atk,mp,steps):
 
-    exit_inp = str(input("\nХотите сохраниться?  \033[33m[Y/n]\033[0m"))
+    exit_inp = str(input(f"\nХотите сохраниться?  {colors.Yellow}[Y/n]{colors.Reset}"))
     exit_inp = exit_inp.lower()
 
     if exit_inp == 'y' or '':
@@ -578,10 +644,16 @@ def exit_f(hp,coins,atk,mp,steps):
         sys.exit()
     else:
         sys.exit()
-def restart():
-    pass
-    #Добавить функцию перезапуска,при которой будет спрашиваться,хочет ли игрок перезапустить игру
-    #Если да, то запускается функция start()
+def restart(platform_clear):
+    restart_inp = str(input(f'\nХотите сыграть заново? {colors.Yellow}[Y/n]{colors.Reset}'))
+    restart_inp = restart_inp.lower()
+    if restart_inp == 'y' or '':
+        steps = 0
+        Coins = 1
+        Hp = 3
+        Atk = 2
+        Mp = 10
+        start(platform_clear,Hp, Atk, Mp, Coins, steps)
 
 def help():
     print('\nВсе комманды :'
